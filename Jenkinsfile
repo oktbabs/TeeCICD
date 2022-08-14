@@ -6,7 +6,7 @@ pipeline {
              checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: 'oktbabs', url: 'https://github.com/oktbabs/TeeCICD.git']]])
               }
             }
-        }
+        
      stage("Build"){
       steps{
         echo "I am checking out"
