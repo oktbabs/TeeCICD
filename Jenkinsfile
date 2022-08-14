@@ -3,8 +3,7 @@ pipeline {
   stages{
         stage('Checkout Code') {
             steps {
-              withCredentials([gitUsernamePassword(credentialsId: 'MYGITHUB', gitToolName: 'git')]) {
-               sh 'git clone https://github.com/oktbabs/TeeCICD.git'
+             checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: 'oktbabs', url: 'https://github.com/oktbabs/TeeCICD.git']]])
               }
             }
         }
